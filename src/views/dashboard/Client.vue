@@ -117,7 +117,7 @@ export default {
       const clientID = this.$route.params.id
 
       axios
-        .get(`http://127.0.0.1:8000/api/v1/clients/${clientID}`)
+        .get(`/clients/${clientID}`)
         .then(response => {
           this.client = response.data
         })

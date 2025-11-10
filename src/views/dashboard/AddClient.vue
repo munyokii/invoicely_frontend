@@ -103,7 +103,7 @@ export default {
   methods: {
     submitForm() {
       axios
-        .post("http://127.0.0.1:8000/api/v1/clients/", this.client)
+        .post("/clients/", this.client)
         .then(response => {
           toast({
             message: `Client ${this.client.name} was added`,

@@ -111,7 +111,7 @@ export default {
       const clientID = this.$route.params.id
 
       axios
-        .get(`http://127.0.0.1:8000/api/v1/clients/${clientID}`)
+        .get(`/clients/${clientID}`)
         .then(response => {
           this.client = response.data
         })
@@ -122,7 +122,7 @@ export default {
     submitForm() {
       const clientID = this.$route.params.id
       axios
-        .patch(`http://127.0.0.1:8000/api/v1/clients/${clientID}/`, this.client)
+        .patch(`/clients/${clientID}/`, this.client)
         .then(response => {
           toast({
             message: "The changes was saved",

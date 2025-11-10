@@ -132,7 +132,7 @@ export default {
   methods: {
     getClients() {
       axios
-        .get("http://127.0.0.1:8000/api/v1/clients/")
+        .get("/clients/")
         .then(response => {
           this.clients = response.data
         })
@@ -186,7 +186,7 @@ export default {
       this.invoice.client = this.invoice.client.id
 
       axios
-        .post("http://127.0.0.1:8000/api/v1/invoices/", this.invoice)
+        .post("/invoices/", this.invoice)
         .then(response => {
           toast({
             message: 'The invoice was added',

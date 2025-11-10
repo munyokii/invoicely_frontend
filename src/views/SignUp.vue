@@ -62,7 +62,7 @@ export default {
       }
 
       axios
-        .post("http://127.0.0.1:8000/api/v1/users/", formData)
+        .post("/users/", formData)
         .then(response => {
           console.log(response)
 

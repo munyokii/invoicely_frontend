@@ -48,7 +48,7 @@ export default {
   methods: {
     getClients() {
       axios
-        .get("http://127.0.0.1:8000/api/v1/clients/")
+        .get("/clients/")
         .then(response => {
             for (let i=0; i<response.data.length; i++) {
               this.clients.push(response.data[i])

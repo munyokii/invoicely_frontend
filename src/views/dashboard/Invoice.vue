@@ -120,7 +120,7 @@ export default {
       const invoiceID = this.$route.params.id
 
       axios
-        .get(`http://127.0.0.1:8000/api/v1/invoices/${invoiceID}`)
+        .get(`/invoices/${invoiceID}`)
         .then(response => {
           this.invoice = response.data
         })
@@ -132,7 +132,7 @@ export default {
       const invoiceID = this.$route.params.id
 
       axios
-        .get(`http://127.0.0.1:8000/api/v1/invoices/${invoiceID}/generate_pdf/`, {
+        .get(`/invoices/${invoiceID}/generate_pdf/`, {
           responseType: 'blob',
         }).then(res => {
           fileDownload(res.data, `invoice_${invoiceID}.pdf`);
@@ -169,7 +169,7 @@ export default {
       delete this.invoice['items']
 
       await axios
-        .patch(`http://127.0.0.1:8000/api/v1/invoices/${this.invoice.id}/`, this.invoice)
+        .patch(`/invoices/${this.invoice.id}/`, this.invoice)
         .then(response => {
           toast({
             message: "The changes was saved",
@@ -193,7 +193,7 @@ export default {
       delete this.invoice['items']
 
       await axios
-        .patch(`http://127.0.0.1:8000/api/v1/invoices/${this.invoice.id}/`, this.invoice)
+        .patch(`/invoices/${this.invoice.id}/`, this.invoice)
         .then(response => {
           toast({
             message: "The changes was saved",
@@ -218,7 +218,7 @@ export default {
       delete creditNote['id']
 
       await axios
-        .post("http://127.0.0.1:8000/api/v1/invoices/", creditNote)
+        .post("/invoices/", creditNote)
         .then(response => {
           toast({
             message: "The credit note was created",
@@ -237,7 +237,7 @@ export default {
     },
     sendReminder() {
       axios
-        .get(`http://127.0.0.1:8000/api/v1/invoices/${this.invoice.id}/send_reminder`)
+        .get(`/invoices/${this.invoice.id}/send_reminder`)
         .then(response => {
           toast({
             message: "The reminder was sent",

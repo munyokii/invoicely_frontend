@@ -65,7 +65,7 @@ export default {
   methods: {
     getInvoices() {
       axios
-        .get("http://127.0.0.1:8000/api/v1/invoices/")
+        .get("/invoices/")
         .then(response => {
             for (let i=0; i<response.data.length; i++) {
               this.invoices.push(response.data[i])

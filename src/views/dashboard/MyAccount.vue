@@ -41,7 +41,7 @@ export default {
   methods: {
     getOrCreateTeam() {
       axios
-        .get("http://127.0.0.1:8000/api/v1/teams/")
+        .get("/teams/")
         .then(response => {
           this.team = response.data[0]
         })
@@ -51,7 +51,7 @@ export default {
     },
     logout() {
       axios
-        .post("http://127.0.0.1:8000/api/v1/token/logout/")
+        .post("/token/logout/")
         .then(response => {
           axios.defaults.headers.common["Authorization"] = ""
 

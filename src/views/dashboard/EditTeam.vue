@@ -118,7 +118,7 @@ export default {
   methods: {
     getOrCreateTeam() {
       axios
-        .get("http://127.0.0.1:8000/api/v1/teams/")
+        .get("/teams/")
         .then(response => {
           this.team = response.data[0]
         })
@@ -128,7 +128,7 @@ export default {
     },
     submitForm() {
       axios
-        .patch(`http://127.0.0.1:8000/api/v1/teams/${this.team.id}/`, this.team)
+        .patch(`/teams/${this.team.id}/`, this.team)
         .then(response => {
           toast({
             message: "The changes was saved",

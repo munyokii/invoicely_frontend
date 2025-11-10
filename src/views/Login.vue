@@ -66,7 +66,7 @@ export default {
         }
 
         await axios
-            .post('http://127.0.0.1:8000/api/v1/token/login/', formData)
+            .post('/token/login/', formData)
             .then(response => {
               const token = response.data.auth_token
 
@@ -91,7 +91,7 @@ export default {
             })
 
         axios
-          .get('http://127.0.0.1:8000/api/v1/users/me')
+          .get('/users/me')
           .then(response => {
             this.$store.commit('setUser', {
             'username': response.data.username,

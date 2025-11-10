@@ -76,7 +76,7 @@ export default {
   methods: {
       getInvoices() {
           axios
-            .get('http://127.0.0.1:8000/api/v1/invoices/')
+            .get('/invoices/')
             .then(response => {
                 for (let i = 0; i < response.data.length; i++) {
                     if (!response.data[i].is_credit_for) {
@@ -90,7 +90,7 @@ export default {
       },
       getClients() {
           axios
-            .get('http://127.0.0.1:8000/api/v1/clients/')
+            .get('/clients/')
             .then(response => {
                 for (let i = 0; i < response.data.length; i++) {
                     if (this.clients.length <= 5) {
